@@ -11,6 +11,8 @@ static t_list  *ft_parser(const char *format, int *i, va_list *ap)
     ft_flags_zero(&flags);
     flags->indent = ft_indent(format, i);
     flags->width = ft_width(ap, format, i);
+    if (format[*i] == '.')
+        flags->dot = 1;
     flags->accur = ft_accur(ap, format, i);
     if (flags->accur == -1)
         flags->real_acc = 1;
@@ -29,8 +31,8 @@ static int ft_count_and_print(const char *format, int *i, t_list *flags, va_list
         length = ft_char(va_arg(*ap, int), flags);
     else if (format[*i] == 's')
         length = ft_string(va_arg(*ap, char*), flags);
-    /*else if (format[*i] == 'p')
-        length = ft_pointer(va_arg(*ap, void*), flags);
+    else if (format[*i] == 'p')
+        length = ft_pointer(va_arg(*ap, size_t), flags);
     else if (format[*i] == 'd' || format[*i] == 'i')
         length = ft_number(va_arg(*ap, int), flags);
     else if (format[*i] == 'u')
@@ -38,7 +40,7 @@ static int ft_count_and_print(const char *format, int *i, t_list *flags, va_list
     else if (format[*i] == 'x')
         length = ft_hex(va_arg(*ap, unsigned int), flags, 0);
     else if (format[*i] == 'X')
-        length = ft_hex(va_arg(*ap, unsigned int), flags, 1);*/
+        length = ft_hex(va_arg(*ap, unsigned int), flags, 1);
     free(flags);
     return (length);
 }

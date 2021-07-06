@@ -6,6 +6,7 @@ void ft_flags_zero(t_list **flags)
     (*flags)->indent = 0;
     (*flags)->width = 0;
     (*flags)->real_acc = 0;
+    (*flags)->dot = 0;
 }
 
 int ft_indent(char const *format, int *i)
@@ -43,18 +44,25 @@ int ft_width(va_list *ap, char const *format, int *i)
 int ft_accur(va_list *ap, char const *format, int *i)
 {
     int a;
+    int flag;
 
+    flag = 1;
     if (format[*i] == '.')
         *i = *i + 1;
     else
         return (0);
+    while (format[*i] == '-')
+    {
+        *i = *i + 1;
+        flag = -1;
+    }
     if (format[*i] == '*')
     {
         a = va_arg(*ap, int);
         *i = *i + 1;
     }
     else
-        a = ft_atoi(format + *i);
+        a = ft_atoi(format + *i) * flag;
     while (ft_isdigit(format[*i]))
         *i = *i + 1;
     if (a == 0)

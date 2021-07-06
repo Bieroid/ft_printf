@@ -1,7 +1,9 @@
 SRCS    =   ft_atoi.c ft_char.c \
 			ft_flags_pars.c ft_printf.c \
 			ft_utils.c ft_string.c \
-			ft_utils2.c \
+			ft_utils2.c ft_number.c \
+			ft_uns_numb.c ft_hex.c \
+			ft_pointer.c \
 
 OBJS    =   ${SRCS:.c=.o}
 

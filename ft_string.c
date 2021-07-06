@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-static int ft_reduction(char **s, t_list *flags, int *length)
+static void ft_reduction(char **s, t_list *flags, int *length)
 {
     int width;
 
@@ -26,7 +26,6 @@ static int ft_reduction(char **s, t_list *flags, int *length)
             *length = *length + 1;
         }
     }
-    return (*length);
 }
 
 int ft_string(char *str, t_list *flags)

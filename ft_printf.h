@@ -12,6 +12,7 @@ typedef struct  s_list
     int width;
     int accur;
     int real_acc;
+    int dot;
 }               t_list;
 
 int     ft_printf(const char *format, ...);
@@ -30,5 +31,11 @@ int     ft_strlen(const char *s);
 char    *ft_substr(char const *s, int start, int len);
 void    *ft_calloc(int num, int size);
 void	ft_putstr(char *s);
+int     ft_number(int n, t_list *flags);
+char    *ft_itoa(long int n);
+int     ft_uns_numb(unsigned int n, t_list *flags);
+int     ft_hex(unsigned int n, t_list *flags, int rub);
+int     ft_reduct(char **s, t_list *flags, int *length);
+int     ft_pointer(size_t n, t_list *flags);
 
 #endif
