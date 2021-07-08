@@ -31,7 +31,7 @@ char	*ft_strdup(const char *str)
 
 int	ft_intlen(long int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n == 0)

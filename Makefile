@@ -3,7 +3,8 @@ SRCS    =   ft_atoi.c ft_char.c \
 			ft_utils.c ft_string.c \
 			ft_utils2.c ft_number.c \
 			ft_uns_numb.c ft_pointer.c \
-			ft_hex.c \
+			ft_hex.c ft_hex_reduction.c \
+			ft_number_reduction.c ft_p_reduction.c \
 
 OBJS    =   ${SRCS:.c=.o}
 
@@ -31,6 +32,8 @@ clean:
 fclean:     clean
 	${RM} ${NAME}
 
+bonus:	all
+
 re:         fclean  all
 
-.PHONY:     all clean   fclean  re
+.PHONY:     all clean bonus fclean  re
